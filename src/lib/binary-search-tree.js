@@ -31,7 +31,7 @@ class BinarySearchTree {
     if (!this.root) {
       return null;
     }
-    return this._find(this.root, value)
+    return this._find(this.root, value);
   }
 
   _find(rootNode, value) {
@@ -42,7 +42,7 @@ class BinarySearchTree {
     } else if (rootNode.value < value) {
       return this._find(rootNode.right, value);
     }
-    return this._find(rootNode.left, value)
+    return this._find(rootNode.left, value);
   }
 }
 

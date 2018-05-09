@@ -30,4 +30,24 @@ export default class KAryTree {
       }
     }
   }
+
+  find(value) {
+    if (!this.root) {
+      return null;
+    }
+    return this._find(this.root, value);
+  }
+
+  _find(rootNode, value) {
+    if (!rootNode) {
+      return null;
+    } else if (rootNode.value === value) {
+      return rootNode;
+    }
+    this._breadthFirstSearch(rootNode, value);
+    if (rootNode.value === value) {
+      return rootNode;
+    }
+    return null;
+  }
 }
