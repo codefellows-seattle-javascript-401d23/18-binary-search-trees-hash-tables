@@ -43,14 +43,19 @@ Configure the root of your repository with the following files and directories. 
 
 * Implement a K-ary-Tree Class
   * implement the following prototype methods
-    * `find(value)` should iterate over all child nodes using a breath-first traversal and return the first node that has that value, it should return null if a node with the value is not found
-    * `toString(str)` should iterate over all child nodes using a breath-first traversal and concatenate their values separated by newlines in to a string
-    * `toArray(array)` should use a depth-first traversal and push all the tree's elements into an array.
+   [ ] `find(value)` should iterate over all child nodes using a breath-first traversal and return 
+         the first node that has that value, it should return null if a node with the value is not 
+          found
+   [ ] `toString(str)` should iterate over all child nodes using a breath-first traversal and 
+          concatenate their values separated by newlines in to a string
+    [ ] `toArray(array)` should use a depth-first traversal and push all the tree's elements into 
+             an array.
 
 ### Big O
-  In the `readme.md` of your application, include the Big O complexity (time and space) for all the implemented methods.
+  [ ]  In the `readme.md` of your application, include the Big O complexity (time and space) for 
+          all the implemented methods.
 
 
 ## Testing
-  * Write at least 2 unit tests (one normal cases and one edge case) for every implemented method.
+  [ ] Write at least 2 unit tests (one normal cases and one edge case) for every implemented method.
   * Organize your tests into appropriate describe blocks for test output readability
