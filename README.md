@@ -45,7 +45,7 @@ Configure the root of your repository with the following files and directories. 
 * Implement a K-ary-Tree Class
   * implement the following prototype methods
     * `find(value)` should iterate over all child nodes using a breath-first traversal and return the first node that has that value, it should return null if a node with the value is not found
-    * `toString(str)` should iterate over all child nodes using a breath-first traversal and concatenate their values separated by newlines in to a string
+    * `toString()` should iterate over all child nodes using a breath-first traversal and concatenate their values separated by newlines in to a string
     * `toArray(array)` should use a depth-first traversal and push all the tree's elements into an array.
 
 ### Big O
