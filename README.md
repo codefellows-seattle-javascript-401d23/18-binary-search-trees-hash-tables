@@ -30,7 +30,8 @@ Configure the root of your repository with the following files and directories. 
   * **src/route/** - contains module definitions
   * **src/\_\_test\_\_/** - contains test modules
   * **main.js** - starts the server
-	####  Documentation
+  
+###  Documentation
   * in your README, write documentation for your data structures
   * your documentation should includes code block usage examples
   * provide instructions for:
