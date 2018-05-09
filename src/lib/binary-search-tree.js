@@ -5,7 +5,6 @@ class BinarySearchTree {
     this.root = root;
   }
 
-  // Time: O(H) -> O(lg n); Space: O(H) -> O(lg n)
   insert(nodeToInsert) {
     if (!this.root) {
       this.root = nodeToInsert;
@@ -27,8 +26,7 @@ class BinarySearchTree {
       this._insert(rootNode.right, nodeToInsert);
     }
   }
-
-  // Time: O(H) -> O(lg n); Space: O(H)  
+  
   find(value) {
     if (!this.root) {
       return null;
