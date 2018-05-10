@@ -1,7 +1,7 @@
 'use strict';
 
 export default class KAryNode {
-  constuctor(value){
+  constructor(value) {
     this.value = value;
     this.children = [];
     // this.children = {};

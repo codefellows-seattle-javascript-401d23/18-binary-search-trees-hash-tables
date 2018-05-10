@@ -13,8 +13,8 @@ export default class KAryTree {
     }
     return this._breadthFirstSearch(this.root);
   }
-  // Josh- I am getting a linter error on line 17!!!!!!!!!!!!!!!!!!!!
-  _breadthFirstSearch(root) {
+
+  _breadthFirstSearch(root, value) { // eslint-disable-line
     const queue = new Queue();
     queue.enqueue(root);
 
@@ -24,10 +24,14 @@ export default class KAryTree {
       currentNode = queue.dequeue();
 
       // replace console.log with a different operation ;)
-      console.log(`visiting ${currentNode.value}`);
+      // console.log(`visiting ${currentNode.value}`);
       for (let i = 0; i < currentNode.children.length; i++) {
+        if (currentNode.value === value) {
+          return currentNode;
+        }
         queue.enqueue(currentNode.children[i]);
       }
+      return currentNode.value;
     }
   }
 
@@ -38,16 +42,12 @@ export default class KAryTree {
     return this._find(this.root, value);
   }
 
-  _find(rootNode, value) {
-    if (!rootNode) {
+  _find(root, value) {
+    if (!root) {
       return null;
-    } else if (rootNode.value === value) {
-      return rootNode;
-    }
-    this._breadthFirstSearch(rootNode, value);
-    if (rootNode.value === value) {
-      return rootNode;
-    }
-    return null;
+    } else if (root.value === value) {
+      return root;
+    } 
+    return this._breadthFirstSearch(root, value);
   }
 }
