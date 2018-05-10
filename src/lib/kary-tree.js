@@ -40,7 +40,7 @@ export default class KAryTree {
     return this._depthFirstSearch(this.root);
   }
 
-  _depthFirstSearch(root) {
+  _depthFirstSearch(root) { // eslint-disable-line
     const stack = new Stack();
     stack.push(root);
 
@@ -137,29 +137,23 @@ export default class KAryTree {
   }
 
   _toArray(root, array) { // eslint-disable-line
-    if (!root) {
+    if (!this.root) {
       return null;
     }
     const stack = new Stack();
+    const treeArray = [];
     stack.push(root);
 
     let currentNode = null;
-    let treeArray = []; // eslint-disable-line
 
     while (!stack.isEmpty()) {
-      console.log(stack);
-      currentNode = stack.value;
+      currentNode = stack.pop();
 
-
-      console.log(`visiting ${currentNode.value}`);
       treeArray.push(currentNode.value);
-      console.log(treeArray);
-      console.log(currentNode); // Josh - the response from this console.log is "true"??????????????
       for (let i = 0; i < currentNode.children.length; i++) {
         stack.push(currentNode.children[i]);
       }
     }
-    // console.log('final list', stringList);
     return treeArray;
   }
 }
