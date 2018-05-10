@@ -31,12 +31,12 @@ Configure the root of your repository with the following files and directories. 
   * **src/\_\_test\_\_/** - contains test modules
   * **main.js** - starts the server
 	####  Documentation
-  * in your README, write documentation for your data structures
-  * your documentation should includes code block usage examples
+  [ ] in your README, write documentation for your data structures
+  [ ] your documentation should includes code block usage examples
   * provide instructions for:
-    * installing and using your data structure
-    * accessing each method
-    * running your tests
+    [x] installing and using your data structure
+    [ ] accessing each method
+    [ ] running your tests
 
 ### Feature Tasks
 * Add a `remove(value)` method to the BinarySearchTree class presented in class.

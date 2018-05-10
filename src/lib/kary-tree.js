@@ -1,6 +1,7 @@
 'use strict';
 
 import Queue from 'queue-fifo';
+import Stack from 'stack-lifo';
 
 export default class KAryTree {
   constructor(root) {
@@ -25,7 +26,7 @@ export default class KAryTree {
       currentNode = queue.dequeue();
 
       // replace console.log with a different operation ;)
-      // console.log(`visiting ${currentNode.value}`);
+      console.log(`visiting ${currentNode.value}`);
       for (let i = 0; i < currentNode.children.length; i++) {
         queue.enqueue(currentNode.children[i]);
       }
@@ -98,5 +99,44 @@ export default class KAryTree {
     }
     // console.log('final list', stringList);
     return stringList;
+  }
+
+  //---------------------------------------------------------------------------------------------
+  // Josh- toArray is NOT WORKING!  I remembered Vinicio mentioned something about
+  // Depth-First-traversal was just replacing stacks for all of the queues....
+  //---------------------------------------------------------------------------------------------
+
+  toArray(array) {
+    if (!this.root) {
+      return null;
+    }
+    return this._toArray(this.root, array);
+  }
+
+  _toArray(root, array) { // eslint-disable-line
+    if (!root) {
+      return null;
+    }
+    const stack = new Stack();
+    stack.push(root);
+
+    let currentNode = null;
+    let treeArray = []; // eslint-disable-line
+
+    while (!stack.isEmpty()) {
+      console.log(stack);
+      currentNode = stack.value;
+
+
+      console.log(`visiting ${currentNode.value}`);
+      treeArray.push(currentNode.value);
+      console.log(treeArray);
+      console.log(currentNode); // Josh - the response from this console.log is "true"??????????????
+      for (let i = 0; i < currentNode.children.length; i++) {
+        stack.push(currentNode.children[i]);
+      }
+    }
+    // console.log('final list', stringList);
+    return treeArray;
   }
 }
