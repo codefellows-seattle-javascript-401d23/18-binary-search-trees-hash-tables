@@ -16,7 +16,7 @@ one.children[1].children[1].appendChild(8);
 
 const kAryTree = new KAryTree(one);
 
-console.log(kAryTree);
+// console.log(kAryTree);
 
 // kAryTree.breadthSearchTraversal();
 
