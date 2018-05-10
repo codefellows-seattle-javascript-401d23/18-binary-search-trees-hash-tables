@@ -29,8 +29,16 @@ describe('#find', () => {
   });
 });
 
+
 describe('#toString', () => {
   test('should return a string', () => {
     expect(kAryTree.toString(kAryTree)).toEqual('1\n2\n3\n4\n5\n6\n7\n8\n');
+  });
+});
+
+
+describe('#toArray', () => {
+  test('should return an array of node values', () => {
+    expect(kAryTree.toArray(kAryTree)).toEqual([1, 2, 3, 4, 5, 6, 7, 8]);
   });
 });
