@@ -9,7 +9,7 @@ export default class KAryTree {
 
   // Time: O(n)
   // Space: O(n)
-  breadthFirstSearchTraversal() {
+  breadthSearchTraversal() {
     if (!this.root) {
       return null;
     }
@@ -18,7 +18,7 @@ export default class KAryTree {
 
   // Space: O(n)
   // Time: O(1)
-  _breadthFirstSearch(root) {
+  _breadthFirstSearch(root) { // eslint-disable-line
     const queue = new Queue();
     queue.enqueue(root);
 

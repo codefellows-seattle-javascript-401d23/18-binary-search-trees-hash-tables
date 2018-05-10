@@ -2,7 +2,7 @@
 
 import KAryNode from './lib/kary-node';
 
-import KAryTree from './lib/kary-tree';
+// import KAryTree from './lib/kary-tree';
 
 const one = new KAryNode(1);
 one.appendChild(2);

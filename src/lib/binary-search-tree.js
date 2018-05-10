@@ -48,6 +48,39 @@ class BinarySearchTree {
     }
     return this._find(rootNode.left, value);
   }
+  minValueNode(node) { // eslint-disable-line
+    let current = node;
+    while (current.left) {
+      current = current.left;
+    }
+    return current;
+  }
+  remove(rootNode, value) {
+    let temp = null;
+
+    if (!rootNode) {
+      return null;
+    } else if (rootNode.value === value) {
+      if (!rootNode.left) {
+        temp = rootNode.right;
+        rootNode = null;  // eslint-disable-line
+        return temp;
+      } else if (!rootNode.right) {
+        if (!rootNode.left) {
+          temp = rootNode.left;
+          rootNode = null;  // eslint-disable-line
+          return temp;
+        }
+      } else {
+        temp = this.minValueNode(rootNode.right);
+        rootNode.value = temp.value;
+        rootNode.right = this.remove(rootNode.right, temp.value);
+      }
+    } else if (rootNode.value < value) {
+      return this.remove(rootNode.right, value);
+    }
+    return this.remove(rootNode.left, value);
+  }
 }
 
 export default BinarySearchTree;

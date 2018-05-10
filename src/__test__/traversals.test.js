@@ -100,3 +100,24 @@ describe('treeC', () => {
     expect(runTraversal(treeC.root, 'in-order')).toEqual('2,1,5,4,6,3');
   });
 });
+describe('bstA', () => {
+  const one = new Node(10);
+  const two = new Node(5);
+  const three = new Node(15);
+  const four = new Node(2);
+
+  const bstA = new BinaryTree(one);
+
+  one.left = two;
+  one.right = three;
+
+  two.left = four;
+
+  test('bstA in-order', () => {
+    expect(runTraversal(bstA.root, 'in-order')).toEqual('2,5,10,15');
+  });
+  test('bstA delete 5', () => {
+    bstA.remove(bstA.root, 5);
+    expect(runTraversal(bstA.root, 'in-order')).toEqual('2,10,15');
+  });
+});
