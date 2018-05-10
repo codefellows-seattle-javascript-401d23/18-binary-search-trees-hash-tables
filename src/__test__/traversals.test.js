@@ -1,6 +1,7 @@
 'use strict';
 
 import BinaryTree from '../lib/binary-tree';
+import BinarySearchTree from '../lib/binary-search-tree';
 import Node from '../lib/node';
 import runTraversal from '../lib/traversals';
 
@@ -106,7 +107,7 @@ describe('bstA', () => {
   const three = new Node(15);
   const four = new Node(2);
 
-  const bstA = new BinaryTree(one);
+  const bstA = new BinarySearchTree(one);
 
   one.left = two;
   one.right = three;
@@ -117,7 +118,9 @@ describe('bstA', () => {
     expect(runTraversal(bstA.root, 'in-order')).toEqual('2,5,10,15');
   });
   test('bstA delete 5', () => {
-    bstA.remove(bstA.root, 5);
+    bstA.remove(bstA.root, 5, null);
+    console.log(bstA);
+    console.log(bstA.root.left);
     expect(runTraversal(bstA.root, 'in-order')).toEqual('2,10,15');
   });
 });

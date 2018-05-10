@@ -55,7 +55,10 @@ class BinarySearchTree {
     }
     return current;
   }
-  remove(rootNode, value) {
+  remove(rootNode, value, parentNode) {
+    // Joy sez: keep track of the parent node and pass it to
+    // the recursive function along with child and value.
+    // this is currently incomplete.
     let temp = null;
 
     if (!rootNode) {
@@ -76,10 +79,11 @@ class BinarySearchTree {
         rootNode.value = temp.value;
         rootNode.right = this.remove(rootNode.right, temp.value);
       }
+      return rootNode;
     } else if (rootNode.value < value) {
-      return this.remove(rootNode.right, value);
+      return this.remove(rootNode.right, value, rootNode);
     }
-    return this.remove(rootNode.left, value);
+    return this.remove(rootNode.left, value, rootNode);
   }
 }
 
