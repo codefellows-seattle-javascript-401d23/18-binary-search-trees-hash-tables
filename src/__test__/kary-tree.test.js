@@ -28,3 +28,9 @@ describe('#find', () => {
     expect(kAryTree.find(99)).toEqual(null);
   });
 });
+
+describe('#toString', () => {
+  test('should return a string', () => {
+    expect(kAryTree.toString(kAryTree)).toEqual('1\n2\n3\n4\n5\n6\n7\n8\n');
+  });
+});
