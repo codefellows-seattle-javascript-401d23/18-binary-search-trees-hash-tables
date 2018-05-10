@@ -62,5 +62,33 @@ export default class KAryTree {
         return currentNode.value;
       }
     }
+    return null;
+  }
+
+  toString(str) {
+    if (!this.root) {
+      return null;
+    }
+    return this._toString(this.root, str);
+  }
+
+  _toString(root, str) { // eslint-disable-line
+    if (!root) {
+      return null;
+    }
+    const queue = new Queue();
+    queue.enqueue(root);
+
+    let currentNode = null;
+
+    while (!queue.isEmpty()) {
+      currentNode = queue.dequeue();
+
+      // replace console.log with a different operation ;)
+      console.log(`visiting ${currentNode.value}`);
+      for (let i = 0; i < currentNode.children.length; i++) {
+        queue.enqueue(currentNode.children[i]);
+      }
+    }
   }
 }

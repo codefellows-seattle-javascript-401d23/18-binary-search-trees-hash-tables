@@ -24,4 +24,7 @@ describe('#find', () => {
   test('should return matching value', () => {
     expect(kAryTree.find(6)).toEqual(6);
   });
+  test('should return null for NO matching value', () => {
+    expect(kAryTree.find(99)).toEqual(null);
+  });
 });
