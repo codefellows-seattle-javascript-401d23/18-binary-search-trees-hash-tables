@@ -1,8 +1,7 @@
 'use strict';
 
 import KAryNode from './lib/kary-node';
-
-// import KAryTree from './lib/kary-tree';
+import KAryTree from './lib/kary-tree';
 
 const one = new KAryNode(1);
 one.appendChild(2);
@@ -16,4 +15,8 @@ one.children[1].appendChild(7);
 
 one.children[1].children[1].appendChild(8);
 
-// const KAryTree = new KAryTree  // ...
+const kAryTree = new KAryTree(one);
+
+// kAryTree.breadthSearchTraversal();
+
+console.log(kAryTree.find(5));
