@@ -38,7 +38,7 @@ export default class KAryTree {
     }
     return this._find(this.root, valueToFind);
   }
-  _find(root, valueToFind) {
+  _find(root, valueToFind) { // eslint-disable-line
     const queue = new Queue();
     queue.enqueue(root);
 

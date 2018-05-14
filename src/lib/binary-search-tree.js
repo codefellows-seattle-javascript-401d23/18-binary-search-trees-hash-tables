@@ -1,4 +1,4 @@
-'use stict';
+'use strict';
 
 class BinarySearchTree {
   constructor(root = null) {
@@ -55,35 +55,43 @@ class BinarySearchTree {
     }
     return current;
   }
-  remove(rootNode, value, parentNode) {
-    // Joy sez: keep track of the parent node and pass it to
-    // the recursive function along with child and value.
-    // this is currently incomplete.
-    let temp = null;
-
+  remove(rootNode, value, parentNode, isLeft) {
     if (!rootNode) {
       return null;
     } else if (rootNode.value === value) {
-      if (!rootNode.left) {
-        temp = rootNode.right;
-        rootNode = null;  // eslint-disable-line
-        return temp;
-      } else if (!rootNode.right) {
-        if (!rootNode.left) {
-          temp = rootNode.left;
-          rootNode = null;  // eslint-disable-line
-          return temp;
+      if (rootNode.left && rootNode.right) { // two children
+        const minValue = this.minValueNode(rootNode.right);
+        rootNode.value = minValue.value;
+        this.remove(rootNode.right, minValue.value, rootNode, false);
+      } else if (!rootNode.left && !rootNode.right) { // no children
+        if (rootNode === this.root) {
+          this.root = null;
+        } else if (isLeft) {
+          parentNode.left = null;
+        } else {
+          parentNode.right = null;
         }
-      } else {
-        temp = this.minValueNode(rootNode.right);
-        rootNode.value = temp.value;
-        rootNode.right = this.remove(rootNode.right, temp.value);
+      } else if (rootNode.left) { // one left child
+        if (rootNode === this.root) {
+          this.root = rootNode.left;
+        } else if (isLeft) {
+          parentNode.left = rootNode.left;
+        } else {
+          parentNode.right = rootNode.left;
+        }
+      } else if (rootNode.right) { // one right child
+        if (rootNode === this.root) {
+          this.root = rootNode.right;
+        } else if (isLeft) {
+          parentNode.left = rootNode.right;
+        } else {
+          parentNode.right = rootNode.right;
+        }
       }
-      return rootNode;
     } else if (rootNode.value < value) {
-      return this.remove(rootNode.right, value, rootNode);
+      return this.remove(rootNode.right, value, rootNode, false);
     }
-    return this.remove(rootNode.left, value, rootNode);
+    return this.remove(rootNode.left, value, rootNode, true);
   }
 }
 
