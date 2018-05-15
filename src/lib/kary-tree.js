@@ -54,8 +54,8 @@ export default class KAryTree {
         stack.push(currentNode.children[i]);
       }
     }
+    return this;
   }
-
 
   find(value) {
     if (!this.root) {
@@ -90,7 +90,6 @@ export default class KAryTree {
     }
     return null;
   }
-
 
   toString(str) {
     if (!this.root) {
@@ -141,25 +140,19 @@ export default class KAryTree {
       return null;
     }
     const stack = new Stack();
+    const treeArray = [];
     stack.push(root);
 
     let currentNode = null;
-    let treeArray = []; // eslint-disable-line
 
     while (!stack.isEmpty()) {
-      console.log(stack);
-      currentNode = stack.value;
+      currentNode = stack.pop();
 
-
-      console.log(`visiting ${currentNode.value}`);
       treeArray.push(currentNode.value);
-      console.log(treeArray);
-      console.log(currentNode); // Josh - the response from this console.log is "true"??????????????
       for (let i = 0; i < currentNode.children.length; i++) {
         stack.push(currentNode.children[i]);
       }
     }
-    // console.log('final list', stringList);
     return treeArray;
   }
 }

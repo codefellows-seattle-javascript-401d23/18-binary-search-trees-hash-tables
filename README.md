@@ -1,6 +1,6 @@
 # 18: Binary Search Trees and Hash Tables
 
-**Author**: Joshua Fredrickson
+**Author**: Joshua Fredrickson and Lacy Hogan
 
 **Version**: 1.0.0 
 
@@ -38,6 +38,5 @@ Here is an example of the k-ary find method:
 
 
 ## Credits and Collaborations
-Special thanks to collaborator Lacey Hogan!
 Gratitude to Sarah Bixler, Josiah Green and to all of the Code Fellows staff and fellow 401-d23 
 students.
