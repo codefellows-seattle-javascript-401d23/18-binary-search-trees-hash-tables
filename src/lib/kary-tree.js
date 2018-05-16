@@ -25,7 +25,6 @@ export default class KAryTree {
     while (!queue.isEmpty()) {
       currentNode = queue.dequeue();
 
-      // replace console.log with a different operation ;)
       console.log(`visiting ${currentNode.value}`);
       for (let i = 0; i < currentNode.children.length; i++) {
         queue.enqueue(currentNode.children[i]);
@@ -54,8 +53,8 @@ export default class KAryTree {
         stack.push(currentNode.children[i]);
       }
     }
+    return this;
   }
-
 
   find(value) {
     if (!this.root) {
@@ -79,18 +78,15 @@ export default class KAryTree {
       currentNode = queue.dequeue();
 
       if (currentNode.value !== value) {
-        // console.log(`visiting ${currentNode.value}`);
         for (let i = 0; i < currentNode.children.length; i++) {
           queue.enqueue(currentNode.children[i]);
         }
       } else {
-        // console.log('this should be the Match!: ', currentNode.value);
         return currentNode.value;
       }
     }
     return null;
   }
-
 
   toString(str) {
     if (!this.root) {
@@ -112,22 +108,13 @@ export default class KAryTree {
     while (!queue.isEmpty()) {
       currentNode = queue.dequeue();
 
-
-      // console.log(`visiting ${currentNode.value}`);
       stringList += `${currentNode.value}\n`;
-      // console.log(stringList);
       for (let i = 0; i < currentNode.children.length; i++) {
         queue.enqueue(currentNode.children[i]);
       }
     }
-    // console.log('final list', stringList);
     return stringList;
   }
-
-  //---------------------------------------------------------------------------------------------
-  // Josh- toArray is NOT WORKING!  I remembered Vinicio mentioned something about
-  // Depth-First-traversal was just replacing stacks for all of the queues....
-  //---------------------------------------------------------------------------------------------
 
   toArray(array) {
     if (!this.root) {
